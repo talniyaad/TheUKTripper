@@ -1,0 +1,13 @@
+<%-include("partials/header")%>
+<div class="container-fluid login ">
+	<div class="row">
+		<div class="col-12 col-md-4  offset-md-4">
+<h1 class="p-2 mb-2 bg-dark text-white rounded">Edit Post</h1>
+	<div class="form-group">
+<form method="POST" action="/blogs/<%=blog._id%>?_method=PUT">
+	<input type="text" class="form-control"name="blog[title]" value="<%=blog.title%>" >
+	<input type="text" class="form-control"name="blog[image]" value="<%=blog.image%>" >
+	<textarea class="form-control "name="blog[data]" placeholder="Enter Blog Content"><%=blog.data%></textarea>
+<input class="btn btn-dark" type="submit">	
+		</form></div></div></div></div>
+<%-include("partials/footer")%>

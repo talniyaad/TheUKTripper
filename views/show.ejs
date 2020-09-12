@@ -1,0 +1,32 @@
+<%-include("partials/header")%>
+<img id="showimg" src="<%=blog.image%>">
+<div class="container">
+<h2 id="showT"><%=blog.title%></h2>
+	<p><em><%=blog.date.toLocaleDateString()%></em></p>
+
+<p><%-blog.data%></p>
+<br>
+	<p>Contributed By: <em>@<%-blog.author%></em></p>
+<%if(activeuser){%>
+<%if(activeuser.username==blog.author){%>
+	<div id="showbtn" >
+<form method="POST" action="/blogs/<%=blog._id%>?_method=DELETE">
+	<input class="btn btn-sm btn-danger" type="submit" value="Delete Post">
+</form>
+<form method="GET" action="/blogs/<%=blog._id%>/edit">
+	<input class=" btn  btn-sm btn-success" type="submit" value="Update Post">
+</form>
+	</div>	
+<%} %>
+
+<form class="form-inline" method="POST" action="/blogs/<%=blog._id%>/comments" >
+	<input id="showtext"class="form-control" type="text" name="comment" placeholder="Add New Comment">
+	<button class=" btn  btn btn-dark">Post</button>
+</form>
+<%}%>
+<%blog.comments.forEach(function(comment){%>
+	<p><em><span id="comment"> <%=comment.author %></span></em>:- <%=comment.comment%></p>
+<%})%>
+</div>
+
+<%-include("partials/footer")%>

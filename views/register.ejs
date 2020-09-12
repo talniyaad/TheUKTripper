@@ -1,0 +1,19 @@
+ <%-include("partials/header")%>
+<div class="container-fluid login ">
+	<div class="row">
+		<div class="col-12 col-md-4  offset-md-4">
+<h1 class="p-2 mb-2 bg-dark text-white rounded">Sign Up</h1>
+<div class="form-group">
+<form action="/register" method="POST">
+    <input type="text" name="username" class="form-control"placeholder="username">
+    <input type="password" name="password"class="form-control" placeholder="password">
+	<input type="email" name="email" class="form-control"placeholder="email">
+	<input type="text" name="firstname" class="form-control"placeholder="firstname">
+	<input type="text" name="lastname"class="form-control" placeholder="lastname">
+    <button class="btn btn-dark">SignUp</button>
+</form>
+			</div>
+		</div>
+</div>
+</div>
+<%-include("partials/footer")%> 
